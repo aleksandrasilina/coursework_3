@@ -1,6 +1,5 @@
 import json
 from datetime import datetime
-from pprint import pprint
 
 
 def get_executed_bank_operations():
@@ -8,7 +7,7 @@ def get_executed_bank_operations():
     Загружает список выполненных банковских операций из файла
     """
     executed_bank_operations = []
-    with open('C:/Users/A/PycharmProjects/coursework/utils/data/operations.json', 'r') as file:
+    with open('C:/Users/A/PycharmProjects/coursework_3/utils/data/operations.json', 'r') as file:
         for operation in json.load(file):
             if operation.get("state") == "EXECUTED":
                 executed_bank_operations.append(operation)
@@ -87,5 +86,3 @@ def print_formatted_bank_operations():
         print(f"{formatted_date} {operation["description"]}\n"
               f"{formatted_from_data} -> {formatted_to_data}\n"
               f"{operation["operationAmount"]["amount"]} {operation["operationAmount"]["currency"]["name"]}\n")
-
-pprint(get_last_5_bank_operations())
